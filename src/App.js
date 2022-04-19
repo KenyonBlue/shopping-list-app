@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <AppContainer>
-        <ShoppingList />
+      <ShoppingList />
       </AppContainer>
     </>
   );
