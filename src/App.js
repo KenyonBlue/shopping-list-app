@@ -7,7 +7,7 @@ import { ListContext } from './context/list-context';
 
 
 function App() {
-  const [ listOfItems, setListofItems ] = useState([])
+  const [ listOfItems, setListofItems ] = useState([{title: 'Apples', description: 'get apples from walmart', id: 1}])
   const providerValue = useMemo(() =>({listOfItems, setListofItems}),[listOfItems, setListofItems]);
 
   return (

@@ -1,7 +1,8 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useContext } from 'react'
 import { ListContext } from '../context/list-context'
 
 import EmptyList from './empty-list'
+import ItemsList from './items-list'
 
 const ShoppingList = () => {
     const {listOfItems, setListofItems} = useContext(ListContext)
@@ -10,8 +11,8 @@ const ShoppingList = () => {
 
   return (
     <div className='w-full flex items-center justify-center h-screen '>
-            {listOfItems.length <= 1 ? <EmptyList/>  : 
-            <div className=""> shopping list </div>
+            {listOfItems.length < 1 ? <EmptyList/>  : 
+            <ItemsList />
             }
     </div>
   )
