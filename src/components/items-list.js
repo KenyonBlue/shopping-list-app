@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ListContext } from "../context/list-context";
 import { MdOutlineEdit } from "react-icons/md";
 import { BiTrashAlt } from "react-icons/bi";
 
 const ItemsList = () => {
-  const { listOfItems, setListofItems } = useContext(ListContext);
+    const {listOfItems, setListofItems, openAddItemModal, setOpenAddItemModal} = useContext(ListContext)
+
   return (
     <div className="h-screen w-full flex flex-col items-center">
       <div className="w-full border-b border-LIGHTGREY p-4 flex items-end justify-between mb-4">
         <p className="text-18px font-nunito">Your Items</p>
-        <button className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold">
+        <button onClick={() => setOpenAddItemModal(true)} className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold">
           Add item
         </button>
       </div>
@@ -17,7 +18,7 @@ const ItemsList = () => {
       {listOfItems.map(item => {
           return (
               <>         
-      <div className="w-full h-20 flex justify-between border border-LIGHTGREY rounded-md">
+      <div key={item.name} className="my-4 w-full h-20 flex justify-between border border-LIGHTGREY rounded-md">
         <div className="flex items-center">
           <input type="checkbox" className="mx-4 h-6 w-6" />
           <div className="flex flex-col">

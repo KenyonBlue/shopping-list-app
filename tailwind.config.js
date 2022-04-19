@@ -87,6 +87,7 @@ module.exports = {
   "44px": "44px",
   "100px": "100px",
   "455px": "455px",
+  "560px": "560px",
   "614px": "614px",
   "720px": "720px",
   0: "0",
@@ -167,6 +168,7 @@ module.exports = {
   "290px": "290px",
   "455px": "500px",
   "720px": "720px",
+  "768px": "768px",
   0: "0",
   "1/2": "50%",
   "2/4": "50%",
@@ -435,6 +437,7 @@ module.exports = {
   LIGHTGREY: '#c5c6c6',
   BACKGROUND: '#444444',
   TRANSPARENT: 'transparent',
+  BLACK_OPACITY: 'rgba(0, 0, 0, 0.46)',
   },
   extend: {
   lineHeight: {
