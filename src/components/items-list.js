@@ -38,7 +38,7 @@ const ItemsList = () => {
         <div className="flex items-center">
           <input checked={item?.purchased || false} onChange={() => togglePurchased(item?.id)} type="checkbox" className="mx-4 h-6 w-6" />
           <div className="flex flex-col">
-            <p className={`font-semibold text-16px ${item.purchased && `line-through`}`}> <span className="text-xs">{item?.count >1 &&`${ item?.count} -` } </span> {item?.title} </p>
+            <p className={`font-semibold text-16px ${item.purchased && `line-through text-BLUE`}`}> <span className="text-xs">{item?.count >1 &&`${ item?.count} -` } </span> {item?.title} </p>
             <p className={`font-normal text-LIGHTGREY text-14px ${item.purchased && `line-through`}`}>{item?.description}</p>
           </div>
         </div>

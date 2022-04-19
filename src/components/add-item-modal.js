@@ -74,7 +74,9 @@ const AddItemModal = () => {
     <>
       {addItemModal.isModalOpen && (
         <div className="absolute w-screen h-screen flex items-center justify-center flex-col bg-BLACK_OPACITY">
-          <div className="w-full md:w-560px h-768px shadow-md bg-WHITE p-4">
+          <div className="w-full md:w-560px h-768px shadow-md bg-WHITE p-4 flex flex-col justify-between">
+            <div className="h-455px flex flex-col justify-between">
+
             <div className="w-full p-4 font-dosis flex justify-between">
               {" "}
               <p> SHOPPING LIST </p>{" "}
@@ -99,14 +101,16 @@ const AddItemModal = () => {
               <p> Add your new item below </p>{" "}
             </div>
             <input
+            placeholder="Buy tomatoes"
               type="text"
-              className="mt-4 h-10 border-LIGHTGREY border w-full rounded-md"
+              className="px-2 mt-4 h-10 border-LIGHTGREY border w-full rounded-md"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
+            placeholder="Get them from walmart"
               type="text"
-              className="h-20 border border-LIGHTGREY w-full my-8 rounded-md"
+              className="p-2 h-40 border border-LIGHTGREY w-full my-8 rounded-md"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
@@ -115,17 +119,7 @@ const AddItemModal = () => {
               value={count ? count.value : null}
               options={options}
             />
-            {addItemModal.status == "add" ? (
-              <button
-                onClick={addItemToList}
-                className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold"
-              >
-                Add item
-              </button>
-            ) : (
-              <>
-                <div className="flex flex-col">
-                  <div className="flex items-center">
+            {addItemModal.status == "edit" && <div className="flex items-center">
                     <input
                       checked={purchased}
                       onChange={() => togglePurchased(addItemModal?.item.id)}
@@ -133,12 +127,49 @@ const AddItemModal = () => {
                       className="my-4  mx-4 h-6 w-6"
                     />
                     <p> purchased</p>
-                  </div>
+                  </div>}
+            </div>
+            {addItemModal.status == "add" ? (
+              <>
+          <div className="flex w-full justify-end"> 
+              <button
+                 onClick={() =>
+                  setItemModal({
+                    isModalOpen: false,
+                    item: { title: "", description: "", id: null },
+                  })
+                }
+                className="mr-4 w-20 text-14px rounded-md p-2  mt-6 font-nunito font-semibold"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={addItemToList}
+                className="w-20 text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold"
+              >
+                Add Task
+              </button>
+            </div>    
+              </>
+            ) : (
+              <>
+                <div className="flex w-full justify-end">
+                <button
+                 onClick={() =>
+                  setItemModal({
+                    isModalOpen: false,
+                    item: { title: "", description: "", id: null },
+                  })
+                }
+                className="mr-4 w-20 text-14px rounded-md p-2  mt-6 font-nunito font-semibold"
+              >
+                Cancel
+              </button>
                   <button
                     onClick={() => editListItem(addItemModal?.item.id)}
-                    className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold"
+                    className="w-20 text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold"
                   >
-                    Edit item
+                    Save item
                   </button>
                 </div>
               </>
