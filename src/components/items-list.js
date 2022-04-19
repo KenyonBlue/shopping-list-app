@@ -10,6 +10,8 @@ const ItemsList = () => {
         setListofItems(items => items.filter( item => item.id !== id))
     }
 
+
+
   return (
     <div className="h-screen w-full flex flex-col items-center">
       <div className="w-full border-b border-LIGHTGREY p-4 flex items-end justify-between mb-4">
@@ -31,7 +33,7 @@ const ItemsList = () => {
           </div>
         </div>
         <div className="w-28 h-full flex justify-between">
-          <button className="w-1/2 flex items-center justify-center">
+          <button onClick={() => setItemModal({isModalOpen: true, status: 'edit', item: item})} className="w-1/2 flex items-center justify-center">
             <MdOutlineEdit className="w-6 h-6" />
           </button>
           <button onClick={() => removeItemFromList(item?.id)} className="w-1/2 flex items-center justify-center">
