@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ListContext } from "../context/list-context";
 import Select from 'react-select'
+import uuid from 'react-uuid'
 
 const AddItemModal = () => {
     const {listOfItems, setListofItems, addItemModal, setItemModal} = useContext(ListContext)
@@ -13,7 +14,7 @@ const AddItemModal = () => {
         { value: '3', label: '3' }
       ]
       const addItemToList = () => {
-          setListofItems(items => [...items, ...[{title, description, id: 2, count}]])
+          setListofItems(items => [...items, ...[{title, description, id: uuid(), count}]])
           setTitle("")
           setDescription("")
           setCount("")
