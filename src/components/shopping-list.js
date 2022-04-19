@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { ListContext } from '../context/list-context'
 
 import EmptyList from './empty-list'
 
 const ShoppingList = () => {
     const {listOfItems, setListofItems} = useContext(ListContext)
+    
 
 
   return (
