@@ -9,14 +9,14 @@ import { ListContext } from './context/list-context';
 
 function App() {
   const [ listOfItems, setListofItems ] = useState([{title: 'Apples', description: 'get apples from walmart', id: 1}])
-  const [openAddItemModal, setOpenAddItemModal ] = useState(false)
-  const providerValue = useMemo(() =>({listOfItems, setListofItems, openAddItemModal, setOpenAddItemModal}),[listOfItems, setListofItems, openAddItemModal, setOpenAddItemModal]);
+  const [addItemModal, setItemModal ] = useState({isModalOpen: false, status: 'add'})
+  const providerValue = useMemo(() =>({listOfItems, setListofItems, addItemModal, setItemModal}),[listOfItems, setListofItems, addItemModal, setItemModal]);
 
   return (
     <>
       <Header />
       <ListContext.Provider value={providerValue}>
-    <AddItemModal/>
+      <AddItemModal/>
       <AppContainer>
       <ShoppingList />
       </AppContainer>

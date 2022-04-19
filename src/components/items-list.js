@@ -4,13 +4,13 @@ import { MdOutlineEdit } from "react-icons/md";
 import { BiTrashAlt } from "react-icons/bi";
 
 const ItemsList = () => {
-    const {listOfItems, setListofItems, openAddItemModal, setOpenAddItemModal} = useContext(ListContext)
+    const {listOfItems, setListofItems, addItemModal, setItemModal} = useContext(ListContext)
 
   return (
     <div className="h-screen w-full flex flex-col items-center">
       <div className="w-full border-b border-LIGHTGREY p-4 flex items-end justify-between mb-4">
         <p className="text-18px font-nunito">Your Items</p>
-        <button onClick={() => setOpenAddItemModal(true)} className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold">
+        <button onClick={() => setItemModal({isModalOpen: true,  status: 'add'})} className="text-14px bg-BLUE rounded-md p-2 text-WHITE mt-6 font-nunito font-semibold">
           Add item
         </button>
       </div>
@@ -27,12 +27,12 @@ const ItemsList = () => {
           </div>
         </div>
         <div className="w-28 h-full flex justify-between">
-          <div className="w-1/2 flex items-center justify-center">
+          <button className="w-1/2 flex items-center justify-center">
             <MdOutlineEdit className="w-6 h-6" />
-          </div>
-          <div className="w-1/2 flex items-center justify-center">
+          </button>
+          <button className="w-1/2 flex items-center justify-center">
             <BiTrashAlt className="w-6 h-6" />
-          </div>
+          </button>
         </div>
       </div>
               </>
